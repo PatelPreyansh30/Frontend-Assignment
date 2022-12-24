@@ -1,3 +1,5 @@
+import Checkbox from "@mui/material/Checkbox";
+
 const SwitchUiType = (props: { data: any; class?: string | "" }) => {
   return (
     <div>
@@ -7,12 +9,11 @@ const SwitchUiType = (props: { data: any; class?: string | "" }) => {
           <span className="input-required">*</span>
         )}
       </label>
-      <input
-        type="checkbox"
-        name={props.data.jsonKey}
-        id={props.data.jsonKey}
+      <Checkbox
         defaultChecked={props.data.validate.defaultValue}
-        placeholder={props.data.placeholder}
+        id={props.data.jsonKey}
+        name={props.data.jsonKey}
+        size="small"
       />
     </div>
   );

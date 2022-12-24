@@ -1,3 +1,5 @@
+import { TextField } from "@mui/material";
+
 const InputUiType = (props: { data: any; class?: string | "" }) => {
   return (
     <div className="width-100 flex align-items-center justify-content-space-between">
@@ -7,12 +9,12 @@ const InputUiType = (props: { data: any; class?: string | "" }) => {
           <span className="input-required">*</span>
         )}
       </label>
-      <input
-        name={props.data.jsonKey}
+      <TextField
         id={props.data.jsonKey}
-        placeholder={props.data.placeholder}
-        type="text"
-        className="preview-input-field"
+        name={props.data.jsonKey}
+        size="small"
+        label={props.data.placeholder}
+        variant="outlined"
       />
     </div>
   );
