@@ -1,5 +1,6 @@
-import Divider from "@mui/material/Divider";
 import { useState } from "react";
+import Divider from "@mui/material/Divider";
+import Tooltip from "@mui/material/Tooltip";
 import IgnoreUiType from "./IgnoreUiType";
 import RadioUiType from "./RadioUiType";
 import SelectUiType from "./SelectUiType";
@@ -10,12 +11,14 @@ const GroupUiType = (props: { data: any; class?: string | "" }) => {
 
   return (
     <div>
-      <p className={`${props.class}`}>
-        {props.data.label}{" "}
-        {props.data.validate.required && (
-          <span className="input-required">*</span>
-        )}
-      </p>
+      <Tooltip title={props.data.description} arrow>
+        <p className={`${props.class}`}>
+          {props.data.label}{" "}
+          {props.data.validate.required && (
+            <span className="input-required">*</span>
+          )}
+        </p>
+      </Tooltip>
       <Divider />
       {props.data.subParameters.map((subParameter: any, index: any) => (
         <div key={`group: ${index}`}>

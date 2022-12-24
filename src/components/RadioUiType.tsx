@@ -1,3 +1,4 @@
+import Tooltip from "@mui/material/Tooltip";
 import React, { useEffect } from "react";
 
 const RadioUiType = (props: { data: any; setRadioButtonInput: any }) => {
@@ -13,12 +14,14 @@ const RadioUiType = (props: { data: any; setRadioButtonInput: any }) => {
     <div className="m10 flex align-items-center justify-content-space-between">
       {props.data.validate.options.map((option: any, index: any) => (
         <div key={`radio: ${index}`}>
-          <label htmlFor={option.value}>
-            {option.label}{" "}
-            {props.data.validate.required && (
-              <span className="input-required">*</span>
-            )}
-          </label>
+          <Tooltip title={props.data.description} arrow>
+            <label htmlFor={option.value}>
+              {option.label}{" "}
+              {props.data.validate.required && (
+                <span className="input-required">*</span>
+              )}
+            </label>
+          </Tooltip>
           <input
             type="radio"
             name={props.data.jsonKey}
