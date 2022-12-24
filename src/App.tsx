@@ -15,7 +15,6 @@ const theme = createTheme({
     MuiTextField: {
       styleOverrides: {
         root: {
-          margin: "10px 5px",
           width: "300px",
           backgroundColor: "white",
         },
@@ -24,7 +23,6 @@ const theme = createTheme({
     MuiFormControl: {
       styleOverrides: {
         root: {
-          margin: "10px 5px",
           width: "300px",
           backgroundColor: "white",
         },

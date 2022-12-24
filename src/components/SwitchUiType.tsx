@@ -2,7 +2,7 @@ import Checkbox from "@mui/material/Checkbox";
 
 const SwitchUiType = (props: { data: any; class?: string | "" }) => {
   return (
-    <div>
+    <div className="m10">
       <label htmlFor={props.data.jsonKey} className={`${props.class}`}>
         {props.data.label}{" "}
         {props.data.validate.required && (

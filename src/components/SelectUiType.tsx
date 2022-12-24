@@ -5,7 +5,7 @@ import Select from "@mui/material/Select";
 
 const SelectUiType = (props: { data: any; class?: string | "" }) => {
   return (
-    <div className="width-100 flex align-items-center justify-content-space-between">
+    <div className="width-100 flex align-items-center justify-content-space-between m10">
       <label htmlFor={props.data.jsonKey} className={`${props.class}`}>
         {props.data.label}{" "}
         {props.data.validate.required && (

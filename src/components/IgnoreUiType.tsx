@@ -4,18 +4,18 @@ import SwitchUiType from "./SwitchUiType";
 
 const IgnoreUiType = (props: { data: any; radioButtonInput: string }) => {
   return (
-    <div>
+    <div className="m10">
       {props.data.subParameters.map((subParameter: any, index: any) => (
         <div key={`switch: ${index}`}>
           {subParameter.uiType === "Select" && (
-              <SelectUiType data={subParameter} />
-              )}
+            <SelectUiType data={subParameter} />
+          )}
           {subParameter.uiType === "Input" && (
-              <InputUiType data={subParameter} />
-              )}
+            <InputUiType data={subParameter} />
+          )}
           {subParameter.uiType === "Switch" && (
-              <SwitchUiType data={subParameter} />
-              )}
+            <SwitchUiType data={subParameter} />
+          )}
         </div>
       ))}
     </div>
