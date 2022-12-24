@@ -2,20 +2,20 @@ import InputUiType from "./InputUiType";
 import SelectUiType from "./SelectUiType";
 import SwitchUiType from "./SwitchUiType";
 
-const IgnoreUiType = (props: { data: any }) => {
+const IgnoreUiType = (props: { data: any; radioButtonInput: string }) => {
   return (
     <div>
       {props.data.subParameters.map((subParameter: any, index: any) => (
         <>
           {subParameter.uiType === "Select" && (
-            <SelectUiType data={subParameter} />
-          )}
+              <SelectUiType data={subParameter} />
+              )}
           {subParameter.uiType === "Input" && (
-            <InputUiType data={subParameter} />
-          )}
+              <InputUiType data={subParameter} />
+              )}
           {subParameter.uiType === "Switch" && (
-            <SwitchUiType data={subParameter} />
-          )}
+              <SwitchUiType data={subParameter} />
+              )}
         </>
       ))}
     </div>

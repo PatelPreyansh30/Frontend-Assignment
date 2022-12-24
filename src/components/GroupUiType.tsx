@@ -1,13 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
+import IgnoreUiType from "./IgnoreUiType";
+import RadioUiType from "./RadioUiType";
 import SelectUiType from "./SelectUiType";
 import SwitchUiType from "./SwitchUiType";
 
 const GroupUiType = (props: { data: any }) => {
+  const [radioButtonInput, setRadioButtonInput] = useState("");
+
   return (
     <div>
-      <label htmlFor="">
+      <h4>
         {props.data.label} {props.data.validate.required && <span>*</span>}
-      </label>
+      </h4>
       {props.data.subParameters.map((subParameter: any, index: any) => (
         <>
           {subParameter.uiType === "Select" && (
@@ -16,17 +20,24 @@ const GroupUiType = (props: { data: any }) => {
           {subParameter.uiType === "Switch" && (
             <SwitchUiType data={subParameter} />
           )}
-          <p>Subparameter Label: {subParameter.label}</p>
+          {subParameter.uiType === "Radio" && (
+            <RadioUiType
+              data={subParameter}
+              setRadioButtonInput={setRadioButtonInput}
+            />
+          )}
           {subParameter.conditions?.map((condition: any) => (
-            <p>Subparameter conditions: {condition.value}</p>
-          ))}
-          {subParameter.subParameters?.map((secondSubParam: any) => (
-            <p>Subparameter Subparameter: {secondSubParam.label}</p>
+            <>
+              {radioButtonInput === condition.value && (
+                <IgnoreUiType
+                  data={subParameter}
+                  radioButtonInput={radioButtonInput}
+                />
+              )}
+            </>
           ))}
         </>
       ))}
-      {/* {props.data.subParameters.map((subParameter: any, index: any) => (
-      ))} */}
     </div>
   );
 };

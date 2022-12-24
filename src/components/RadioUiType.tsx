@@ -1,10 +1,26 @@
-const RadioUiType = (props: { data: any }) => {
+import React, { useEffect } from "react";
+
+const RadioUiType = (props: { data: any; setRadioButtonInput: any }) => {
+  useEffect(() => {
+    props.setRadioButtonInput(props.data.validate.defaultValue);
+  }, []);
+
+  const handleOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    props.setRadioButtonInput(e.target.value);
+  };
+
   return (
     <div>
       {props.data.validate.options.map((option: any, index: any) => (
         <div>
           <label htmlFor={option.value}>{option.label}</label>
-          <input type="radio" name={props.data.jsonKey} id={option.value} />
+          <input
+            type="radio"
+            name={props.data.jsonKey}
+            id={option.value}
+            value={option.value}
+            onChange={handleOnChange}
+          />
         </div>
       ))}
     </div>
