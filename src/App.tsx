@@ -28,6 +28,13 @@ const theme = createTheme({
         },
       },
     },
+    MuiDivider: {
+      styleOverrides: {
+        root: {
+          margin: "15px 0",
+        },
+      },
+    },
   },
 });
 

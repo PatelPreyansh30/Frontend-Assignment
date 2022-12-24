@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import Divider from "@mui/material/Divider";
+import { useState } from "react";
 import IgnoreUiType from "./IgnoreUiType";
 import RadioUiType from "./RadioUiType";
 import SelectUiType from "./SelectUiType";
@@ -15,7 +16,7 @@ const GroupUiType = (props: { data: any; class?: string | "" }) => {
           <span className="input-required">*</span>
         )}
       </p>
-      <hr className="group-ui-divider" />
+      <Divider />
       {props.data.subParameters.map((subParameter: any, index: any) => (
         <div key={`group: ${index}`}>
           {subParameter.uiType === "Select" && (
