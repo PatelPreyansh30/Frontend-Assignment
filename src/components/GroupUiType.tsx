@@ -4,17 +4,17 @@ import RadioUiType from "./RadioUiType";
 import SelectUiType from "./SelectUiType";
 import SwitchUiType from "./SwitchUiType";
 
-const GroupUiType = (props: { data: any }) => {
+const GroupUiType = (props: { data: any; class?: string | "" }) => {
   const [radioButtonInput, setRadioButtonInput] = useState("");
 
   return (
     <div>
-      <h4>
+      <p className={`${props.class}`}>
         {props.data.label}{" "}
         {props.data.validate.required && (
           <span className="input-required">*</span>
         )}
-      </h4>
+      </p>
       {props.data.subParameters.map((subParameter: any, index: any) => (
         <div key={`group: ${index}`}>
           {subParameter.uiType === "Select" && (

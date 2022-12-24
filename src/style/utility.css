@@ -53,3 +53,9 @@
 .width-100 {
     width: 100%;
 }
+
+/* fonts */
+.h5-font {
+    font-size: 16px;
+    font-weight: 600;
+}
