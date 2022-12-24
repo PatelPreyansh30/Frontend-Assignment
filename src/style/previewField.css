@@ -1,4 +1,22 @@
+:root {
+    --background: rgb(174, 201, 218, 0.3);
+    --background-border: rgb(127, 169, 196);
+    --font-color: rgb(20, 91, 199);
+    --error-color: red;
+}
+
 .previewField-main {
-    border: 2px solid red;
     width: 100%;
+}
+
+.input-required {
+    color: var(--error-color);
+}
+
+.gray-background {
+    background: var(--background);
+    padding: 20px;
+    margin: 10px;
+    border-radius: 6px;
+    border: 1px solid var(--background-border);
 }

@@ -1,5 +1,4 @@
 import "../style/inputField.css";
-import React from "react";
 
 const InputField = (props: {handleOnChange: any; jsonData: string}) => {
   return (
