@@ -15,6 +15,7 @@ const GroupUiType = (props: { data: any; class?: string | "" }) => {
           <span className="input-required">*</span>
         )}
       </p>
+      <hr className="group-ui-divider" />
       {props.data.subParameters.map((subParameter: any, index: any) => (
         <div key={`group: ${index}`}>
           {subParameter.uiType === "Select" && (
