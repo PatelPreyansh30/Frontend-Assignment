@@ -10,7 +10,7 @@ const SelectUiType = (props: { data: any }) => {
         defaultValue={props.data.validate.defaultValue}
       >
         {props.data.validate.options.map((option: any, index: any) => (
-          <option value={option.label}>{option.label}</option>
+          <option key={`options: ${index}`} value={option.label}>{option.label}</option>
         ))}
       </select>
     </div>

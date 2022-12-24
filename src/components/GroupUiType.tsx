@@ -13,7 +13,7 @@ const GroupUiType = (props: { data: any }) => {
         {props.data.label} {props.data.validate.required && <span>*</span>}
       </h4>
       {props.data.subParameters.map((subParameter: any, index: any) => (
-        <>
+        <div key={`group: ${index}`}>
           {subParameter.uiType === "Select" && (
             <SelectUiType data={subParameter} />
           )}
@@ -27,16 +27,16 @@ const GroupUiType = (props: { data: any }) => {
             />
           )}
           {subParameter.conditions?.map((condition: any) => (
-            <>
+            <div key={`radioCondition: ${index}`}>
               {radioButtonInput === condition.value && (
                 <IgnoreUiType
                   data={subParameter}
                   radioButtonInput={radioButtonInput}
                 />
               )}
-            </>
+            </div>
           ))}
-        </>
+        </div>
       ))}
     </div>
   );

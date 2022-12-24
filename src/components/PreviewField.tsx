@@ -9,7 +9,7 @@ const PreviewField = (props: { jsonData: Object[] }) => {
     <div className="previewField-main">
       {pizzaData.map((item, index) => (
         <div
-          key={`first:${index}`}
+          key={`preview: ${index}`}
           style={{ border: "1px solid", margin: "10px" }}
         >
           {item.uiType === "Input" && <InputUiType data={item} />}

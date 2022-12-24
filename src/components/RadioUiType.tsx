@@ -12,7 +12,7 @@ const RadioUiType = (props: { data: any; setRadioButtonInput: any }) => {
   return (
     <div>
       {props.data.validate.options.map((option: any, index: any) => (
-        <div>
+        <div key={`radio: ${index}`}>
           <label htmlFor={option.value}>{option.label}</label>
           <input
             type="radio"

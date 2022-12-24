@@ -6,7 +6,7 @@ const IgnoreUiType = (props: { data: any; radioButtonInput: string }) => {
   return (
     <div>
       {props.data.subParameters.map((subParameter: any, index: any) => (
-        <>
+        <div key={`switch: ${index}`}>
           {subParameter.uiType === "Select" && (
               <SelectUiType data={subParameter} />
               )}
@@ -16,7 +16,7 @@ const IgnoreUiType = (props: { data: any; radioButtonInput: string }) => {
           {subParameter.uiType === "Switch" && (
               <SwitchUiType data={subParameter} />
               )}
-        </>
+        </div>
       ))}
     </div>
   );
