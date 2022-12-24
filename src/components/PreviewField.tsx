@@ -1,9 +1,19 @@
-import { useState } from "react";
 import "../style/previewField.css";
+import pizzaData from "../pizza.json";
+import InputUiType from "./InputUiType";
+import GroupUiType from "./GroupUiType";
 
 const PreviewField = (props: { jsonData: Object[] }) => {
-  const [data, setData] = useState<any[]>([]);
-  return <div className="previewField-main">{data}</div>;
+  return (
+    <div className="previewField-main">
+      {pizzaData.map((item, index) => (
+        <div key={`first:${index}`}>
+          {item.uiType === "Input" && <InputUiType data={item} />}
+          {item.uiType === "Group" && <GroupUiType data={item} />}
+        </div>
+      ))}
+    </div>
+  );
 };
 
 export default PreviewField;
