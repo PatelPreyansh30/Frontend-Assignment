@@ -18,6 +18,7 @@ const RadioUiType = (props: { data: any; setRadioButtonInput: any }) => {
             type="radio"
             name={props.data.jsonKey}
             id={option.value}
+            defaultChecked={props.data.validate.defaultValue === option.value}
             value={option.value}
             onChange={handleOnChange}
           />
