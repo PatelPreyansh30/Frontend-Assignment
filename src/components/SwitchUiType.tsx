@@ -8,7 +8,7 @@ const SwitchUiType = (props: { data: any }) => {
         type="checkbox"
         name={props.data.jsonKey}
         id={props.data.jsonKey}
-        checked={props.data.validate.defaultValue}
+        defaultChecked={props.data.validate.defaultValue}
         placeholder={props.data.placeholder}
       />
     </div>
