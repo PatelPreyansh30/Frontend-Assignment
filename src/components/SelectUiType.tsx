@@ -1,10 +1,14 @@
 const SelectUiType = (props: { data: any }) => {
   return (
     <div>
-      <label htmlFor="">
+      <label htmlFor={props.data.jsonKey}>
         {props.data.label} {props.data.validate.required && <span>*</span>}
       </label>
-      <select name="" id="" defaultValue={props.data.defaultValue}>
+      <select
+        name={props.data.jsonKey}
+        id={props.data.jsonKey}
+        defaultValue={props.data.validate.defaultValue}
+      >
         {props.data.validate.options.map((option: any, index: any) => (
           <option value={option.label}>{option.label}</option>
         ))}
