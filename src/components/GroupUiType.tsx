@@ -10,7 +10,10 @@ const GroupUiType = (props: { data: any }) => {
   return (
     <div>
       <h4>
-        {props.data.label} {props.data.validate.required && <span>*</span>}
+        {props.data.label}{" "}
+        {props.data.validate.required && (
+          <span className="input-required">*</span>
+        )}
       </h4>
       {props.data.subParameters.map((subParameter: any, index: any) => (
         <div key={`group: ${index}`}>

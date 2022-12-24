@@ -1,14 +1,18 @@
 const InputUiType = (props: { data: any }) => {
   return (
-    <div>
+    <div className="width-100 flex align-items-center justify-content-space-between">
       <label htmlFor={props.data.jsonKey}>
-        {props.data.label} {props.data.validate.required && <span>*</span>}
+        {props.data.label}{" "}
+        {props.data.validate.required && (
+          <span className="input-required">*</span>
+        )}
       </label>
       <input
-        type="text"
         name={props.data.jsonKey}
         id={props.data.jsonKey}
         placeholder={props.data.placeholder}
+        type="text"
+        className="preview-input-field"
       />
     </div>
   );

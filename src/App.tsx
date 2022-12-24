@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./App.css";
+import "./style/utility.css";
 import PreviewField from "./components/PreviewField";
 import InputField from "./components/InputField";
 

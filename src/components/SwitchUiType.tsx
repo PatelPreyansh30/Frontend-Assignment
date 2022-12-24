@@ -2,7 +2,10 @@ const SwitchUiType = (props: { data: any }) => {
   return (
     <div>
       <label htmlFor={props.data.jsonKey}>
-        {props.data.label} {props.data.validate.required && <span>*</span>}
+        {props.data.label}{" "}
+        {props.data.validate.required && (
+          <span className="input-required">*</span>
+        )}
       </label>
       <input
         type="checkbox"
