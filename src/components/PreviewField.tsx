@@ -2,6 +2,7 @@ import "../style/previewField.css";
 import pizzaData from "../pizza.json";
 import InputUiType from "./InputUiType";
 import GroupUiType from "./GroupUiType";
+import SelectUiType from "./SelectUiType";
 
 const PreviewField = (props: { jsonData: Object[] }) => {
   return (
@@ -10,6 +11,7 @@ const PreviewField = (props: { jsonData: Object[] }) => {
         <div key={`first:${index}`}>
           {item.uiType === "Input" && <InputUiType data={item} />}
           {item.uiType === "Group" && <GroupUiType data={item} />}
+          {item.uiType === "Select" && <SelectUiType data={item} />}
         </div>
       ))}
     </div>
