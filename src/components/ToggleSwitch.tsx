@@ -3,6 +3,8 @@ import { FormControlLabel, Switch } from "@mui/material";
 
 const ToggleSwitch = () => {
   const [value, setValue] = useState("Show advanced fields");
+
+  // Set toggle switch text
   const handleOnChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (event.target.checked) {
       setValue("Hide advanced fields");

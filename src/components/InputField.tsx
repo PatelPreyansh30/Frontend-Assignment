@@ -2,6 +2,7 @@ import React from "react";
 import "../style/inputField.css";
 
 const InputField = (props: { setJsonData: any }) => {
+  // Function for handle changing in input files
   const handleOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const reader = new FileReader();
     const file = e.target.files;
@@ -19,12 +20,13 @@ const InputField = (props: { setJsonData: any }) => {
     };
   };
 
+  // Function for handle changing in textarea text
   const handleOnChangeForTextArea = (
     e: React.ChangeEvent<HTMLTextAreaElement>
   ) => {
     props.setJsonData(e.target.value);
   };
-  
+
   return (
     <div className="inputField-main">
       <input

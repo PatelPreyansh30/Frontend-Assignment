@@ -22,11 +22,14 @@ const PreviewField = (props: { jsonData: any; isJsonData: boolean }) => {
     <>
       {props.isJsonData ? (
         <div className="previewField-main">
+
+          {/* Dynamically generate heading name */}
           <h2 style={{ margin: "10px" }}>
             Create {props.jsonData[0].label.split(" ")[0]}
           </h2>
           <Divider sx={{ margin: "10px" }} />
 
+          {/* Iterate and checking of UI type and envoke respective UI component */}
           {props.jsonData.map((item: any, index: any) => (
             <div key={`preview: ${index}`} className="gray-background">
               {item.uiType === "Input" && (
@@ -60,6 +63,7 @@ const PreviewField = (props: { jsonData: any; isJsonData: boolean }) => {
             </div>
           ))}
           
+          {/* Common part for all UI (divider and buttons) */}
           <Divider sx={{ margin: "10px" }} />
           <div
             className="flex justify-content-space-between align-items-center"
@@ -85,6 +89,7 @@ const PreviewField = (props: { jsonData: any; isJsonData: boolean }) => {
           </div>
         </div>
       ) : (
+        // For error handling (Invalid JSON, Enter JSON)
         <h3
           className="previewField-main"
           style={{ textAlign: "center", padding: "20px" }}

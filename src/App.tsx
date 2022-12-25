@@ -5,6 +5,7 @@ import PreviewField from "./components/PreviewField";
 import InputField from "./components/InputField";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 
+// Material UI customized theme
 const theme = createTheme({
   palette: {
     primary: {
@@ -52,8 +53,10 @@ const theme = createTheme({
 });
 
 function App() {
+  // State for input data (file or textarea)
   const [jsonData, setJsonData] = useState<string>(``);
 
+  // Function for validation if string is valid JSON or not
   function isValidJson(str: string) {
     try {
       JSON.parse(str);
