@@ -13,7 +13,7 @@ const RadioUiType = (props: { data: any; setRadioButtonInput: any }) => {
   return (
     <div className="m10 flex align-items-center justify-content-space-between">
       {props.data.validate.options.map((option: any, index: any) => (
-        <div key={`radio: ${index}`}>
+        <div key={`radio: ${index}`} className="flex align-items-center">
           <Tooltip title={props.data.description} arrow>
             <label htmlFor={option.value}>
               {option.label}{" "}

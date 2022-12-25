@@ -49,6 +49,11 @@
     align-items: flex-end;
 }
 
+/* cursor */
+.pointer {
+    cursor: pointer;
+}
+
 /* width */
 .width-100 {
     width: 100%;

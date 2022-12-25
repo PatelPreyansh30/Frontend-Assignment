@@ -20,3 +20,16 @@
     border-radius: 6px;
     border: 1px solid var(--background-border);
 }
+
+.preview-radio-label {
+    text-align: center;
+    width: 100%;
+    padding: 10px 0;
+    margin: 5px;
+    border: 1px solid black;
+    border-radius: 6px;
+}
+
+.preview-radio-label-active {
+    background-color: var(--background-border);
+}
