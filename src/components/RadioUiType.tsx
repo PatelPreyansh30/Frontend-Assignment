@@ -1,4 +1,4 @@
-import Tooltip from "@mui/material/Tooltip";
+import { FormControlLabel, Radio, RadioGroup } from "@mui/material";
 import React, { useEffect } from "react";
 
 const RadioUiType = (props: { data: any; setRadioButtonInput: any }) => {
@@ -7,32 +7,31 @@ const RadioUiType = (props: { data: any; setRadioButtonInput: any }) => {
   }, []);
 
   const handleOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    props.setRadioButtonInput(e.target.value);
+    if (e.target.checked) {
+      props.setRadioButtonInput(e.target.value);
+    }
   };
 
   return (
     <div className="m10 flex align-items-center justify-content-space-between">
-      {props.data.validate.options.map((option: any, index: any) => (
-        <div key={`radio: ${index}`} className="flex align-items-center">
-          <Tooltip title={props.data.description} arrow>
-            <label htmlFor={option.value}>
-              {option.label}{" "}
-              {props.data.validate.required && (
-                <span className="input-required">*</span>
-              )}
-            </label>
-          </Tooltip>
-          <input
-            type="radio"
-            name={props.data.jsonKey}
-            id={option.value}
-            defaultChecked={props.data.validate.defaultValue === option.value}
-            defaultValue={props.data.validate.defaultValue}
+      <RadioGroup
+        row
+        aria-labelledby="demo-radio-buttons-group-label"
+        defaultValue={props.data.validate.defaultValue}
+        name={props.data.jsonKey}
+      >
+        {props.data.validate.options.map((option: any, index: any) => (
+          <FormControlLabel
             value={option.value}
-            onChange={handleOnChange}
+            control={
+              <Radio onChange={handleOnChange} name={props.data.jsonKey} />
+            }
+            label={option.label}
+            name={props.data.jsonKey}
+            labelPlacement="start"
           />
-        </div>
-      ))}
+        ))}
+      </RadioGroup>
     </div>
   );
 };
