@@ -5,7 +5,7 @@ const ToggleSwitch = () => {
   const [value, setValue] = useState("Show advanced fields");
   const handleOnChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (event.target.checked) {
-      setValue("Hide advanced field");
+      setValue("Hide advanced fields");
     } else {
       setValue("Show advanced fields");
     }

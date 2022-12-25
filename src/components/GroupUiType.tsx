@@ -1,31 +1,45 @@
 import { useState } from "react";
-import { Divider, Tooltip } from "@mui/material";
+import { Chip, Divider, Tooltip } from "@mui/material";
 import IgnoreUiType from "./IgnoreUiType";
 import RadioUiType from "./RadioUiType";
 import SelectUiType from "./SelectUiType";
 import SwitchUiType from "./SwitchUiType";
+import ToggleSwitch from "./ToggleSwitch";
 
-const GroupUiType = (props: { data: any; class?: string | "" }) => {
+const GroupUiType = (props: {
+  data: any;
+  class?: string | "";
+  setInputData: any;
+}) => {
   const [radioButtonInput, setRadioButtonInput] = useState("");
 
   return (
     <div>
-      <Tooltip title={props.data.description} arrow>
-        <p className={`${props.class}`}>
-          {props.data.label}{" "}
-          {props.data.validate.required && (
-            <span className="input-required">*</span>
-          )}
-        </p>
-      </Tooltip>
+      <label className={`${props.class}`}>
+        {props.data.label}{" "}
+        {props.data.validate.required && (
+          <span className="input-required">*</span>
+        )}
+        {props.data.description && (
+          <Tooltip title={props.data.description} arrow>
+            <Chip label="i" size="small" />
+          </Tooltip>
+        )}
+      </label>
       <Divider />
       {props.data.subParameters.map((subParameter: any, index: any) => (
         <div key={`group: ${index}`}>
           {subParameter.uiType === "Select" && (
-            <SelectUiType data={subParameter} />
+            <SelectUiType
+              data={subParameter}
+              setInputData={props.setInputData}
+            />
           )}
           {subParameter.uiType === "Switch" && (
-            <SwitchUiType data={subParameter} />
+            <SwitchUiType
+              data={subParameter}
+              setInputData={props.setInputData}
+            />
           )}
           {subParameter.uiType === "Radio" && (
             <RadioUiType
@@ -39,12 +53,14 @@ const GroupUiType = (props: { data: any; class?: string | "" }) => {
                 <IgnoreUiType
                   data={subParameter}
                   radioButtonInput={radioButtonInput}
+                  setInputData={props.setInputData}
                 />
               )}
             </div>
           ))}
         </div>
       ))}
+      <ToggleSwitch />
     </div>
   );
 };

@@ -1,5 +1,6 @@
 import "../style/previewField.css";
-import { Button } from "@mui/material";
+import { useEffect, useState } from "react";
+import { Button, Divider } from "@mui/material";
 import InputUiType from "./InputUiType";
 import GroupUiType from "./GroupUiType";
 import SelectUiType from "./SelectUiType";
@@ -7,6 +8,16 @@ import SwitchUiType from "./SwitchUiType";
 import ToggleSwitch from "./ToggleSwitch";
 
 const PreviewField = (props: { jsonData: any; isJsonData: boolean }) => {
+  const [inputData, setInputData] = useState({});
+
+  const handleSubmit = () => {
+    console.log(inputData);
+  };
+
+  const handleCancel = () => {
+    setInputData({});
+  };
+
   return (
     <>
       {props.isJsonData ? (
@@ -14,29 +25,54 @@ const PreviewField = (props: { jsonData: any; isJsonData: boolean }) => {
           {props.jsonData.map((item: any, index: any) => (
             <div key={`preview: ${index}`} className="gray-background">
               {item.uiType === "Input" && (
-                <InputUiType data={item} class="h5-font" />
+                <InputUiType
+                  data={item}
+                  class="h5-font"
+                  setInputData={setInputData}
+                />
               )}
               {item.uiType === "Group" && (
-                <GroupUiType data={item} class="h5-font" />
+                <GroupUiType
+                  data={item}
+                  class="h5-font"
+                  setInputData={setInputData}
+                />
               )}
               {item.uiType === "Select" && (
-                <SelectUiType data={item} class="h5-font" />
+                <SelectUiType
+                  data={item}
+                  class="h5-font"
+                  setInputData={setInputData}
+                />
               )}
               {item.uiType === "Switch" && (
-                <SwitchUiType data={item} class="h5-font" />
+                <SwitchUiType
+                  data={item}
+                  class="h5-font"
+                  setInputData={setInputData}
+                />
               )}
             </div>
           ))}
+          <Divider sx={{ margin: "10px" }} />
           <div
             className="flex justify-content-space-between align-items-center"
             style={{ padding: "0 10px" }}
           >
             <ToggleSwitch />
             <div className="flex justify-content-center align-items-center">
-              <Button variant="outlined" sx={{ marginRight: "5px" }}>
+              <Button
+                onClick={handleCancel}
+                variant="outlined"
+                sx={{ marginRight: "5px" }}
+              >
                 Cancel
               </Button>
-              <Button variant="contained" sx={{ marginLeft: "5px" }}>
+              <Button
+                onClick={handleSubmit}
+                variant="contained"
+                sx={{ marginLeft: "5px" }}
+              >
                 Submit
               </Button>
             </div>

@@ -23,3 +23,9 @@
     border-radius: 6px;
     border: 1px solid var(--background-border);
 }
+
+@media screen and (max-width: 1024px) and (min-width: 300px) {
+    .previewField-main {
+        margin: 6px;
+    }
+}

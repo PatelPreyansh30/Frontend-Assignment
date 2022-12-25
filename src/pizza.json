@@ -2,7 +2,7 @@
     {
       "sort": 1,
       "label": "Pizza Name",
-      "description": "",
+      "description": "Pizza Name",
       "validate": {
         "required": true,
         "immutable": false
@@ -203,7 +203,7 @@
     {
       "sort": 10002,
       "label": "Toppings",
-      "description": "",
+      "description": "Toppings of Pizza",
       "validate": {
         "required": true,
         "immutable": false
@@ -217,7 +217,7 @@
         {
           "sort": 1,
           "label": "Sauce",
-          "description": "",
+          "description": "Sauce of pizza",
           "validate": {
             "required": true,
             "options": [
