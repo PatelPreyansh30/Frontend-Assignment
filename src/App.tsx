@@ -11,6 +11,9 @@ const theme = createTheme({
       main: "#000",
     },
   },
+  typography: {
+    fontFamily: "Poppins",
+  },
   components: {
     MuiTextField: {
       styleOverrides: {

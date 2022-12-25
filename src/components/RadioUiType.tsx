@@ -22,20 +22,25 @@ const RadioUiType = (props: { data: any; setRadioButtonInput: any }) => {
         sx={{ margin: "0" }}
       >
         {props.data.validate.options.map((option: any, index: any) => (
-          <FormControlLabel
-            value={option.value}
-            control={
-              <Radio
-                onChange={handleOnChange}
-                name={props.data.jsonKey}
-                sx={{ margin: "0" }}
-              />
-            }
-            label={option.label}
-            name={props.data.jsonKey}
-            labelPlacement="start"
-            sx={{ margin: "0" }}
-          />
+          <div>
+            <FormControlLabel
+              value={option.value}
+              control={
+                <Radio
+                  onChange={handleOnChange}
+                  name={props.data.jsonKey}
+                  sx={{ margin: "0" }}
+                />
+              }
+              label={option.label}
+              name={props.data.jsonKey}
+              labelPlacement="end"
+              sx={{ margin: "0" }}
+            />
+            {props.data.validate.required && (
+              <span className="input-required">*</span>
+            )}
+          </div>
         ))}
       </RadioGroup>
     </div>
