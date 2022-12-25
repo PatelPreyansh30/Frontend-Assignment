@@ -1,4 +1,4 @@
-import { FormControlLabel, Radio, RadioGroup } from "@mui/material";
+import { FormControlLabel, Radio, RadioGroup, Tooltip } from "@mui/material";
 import React, { useEffect } from "react";
 
 const RadioUiType = (props: { data: any; setRadioButtonInput: any }) => {
@@ -19,16 +19,22 @@ const RadioUiType = (props: { data: any; setRadioButtonInput: any }) => {
         aria-labelledby="demo-radio-buttons-group-label"
         defaultValue={props.data.validate.defaultValue}
         name={props.data.jsonKey}
+        sx={{ margin: "0" }}
       >
         {props.data.validate.options.map((option: any, index: any) => (
           <FormControlLabel
             value={option.value}
             control={
-              <Radio onChange={handleOnChange} name={props.data.jsonKey} />
+              <Radio
+                onChange={handleOnChange}
+                name={props.data.jsonKey}
+                sx={{ margin: "0" }}
+              />
             }
             label={option.label}
             name={props.data.jsonKey}
             labelPlacement="start"
+            sx={{ margin: "0" }}
           />
         ))}
       </RadioGroup>

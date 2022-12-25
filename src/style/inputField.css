@@ -3,7 +3,9 @@
     align-items: center;
     justify-content: center;
     width: 100%;
+    margin-right: 5px;
     border: 2px solid black;
+    border-radius: 8px;
 }
 
 .inputField-main input[type=file] {
