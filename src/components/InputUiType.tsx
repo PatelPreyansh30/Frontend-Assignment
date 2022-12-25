@@ -2,7 +2,7 @@ import { TextField, Tooltip } from "@mui/material";
 
 const InputUiType = (props: { data: any; class?: string | "" }) => {
   return (
-    <div className="width-100 flex align-items-center justify-content-space-between m10">
+    <div className="width-100 flex align-items-center justify-content-space-between flex-wrap m10">
       <Tooltip title={props.data.description} arrow>
         <label htmlFor={props.data.jsonKey} className={`${props.class}`}>
           {props.data.label}{" "}

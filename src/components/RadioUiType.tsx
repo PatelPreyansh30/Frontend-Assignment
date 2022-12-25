@@ -13,7 +13,7 @@ const RadioUiType = (props: { data: any; setRadioButtonInput: any }) => {
   };
 
   return (
-    <div className="m10 flex align-items-center justify-content-space-between">
+    <div className="m10 flex align-items-center justify-content-space-between flex-wrap">
       <RadioGroup
         row
         aria-labelledby="demo-radio-buttons-group-label"
@@ -22,7 +22,7 @@ const RadioUiType = (props: { data: any; setRadioButtonInput: any }) => {
         sx={{ margin: "0" }}
       >
         {props.data.validate.options.map((option: any, index: any) => (
-          <div>
+          <div key={`radio: ${index}`}>
             <FormControlLabel
               value={option.value}
               control={

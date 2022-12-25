@@ -8,9 +8,9 @@ import {
 
 const SelectUiType = (props: { data: any; class?: string | "" }) => {
   return (
-    <div className="width-100 flex align-items-center justify-content-space-between m10">
+    <div className="width-100 flex align-items-center justify-content-space-between flex-wrap m10">
       <Tooltip title={props.data.description} arrow>
-        <label htmlFor={props.data.jsonKey} className={`${props.class}`}>
+        <label htmlFor={props.data.jsonKey} className={`${props.class} m10`}>
           {props.data.label}{" "}
           {props.data.validate.required && (
             <span className="input-required">*</span>
