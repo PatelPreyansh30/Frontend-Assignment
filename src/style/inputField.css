@@ -14,18 +14,32 @@
 .inputField-main input[type=file] {
     font-size: 18px;
     margin-bottom: 10px;
-    text-align: center;
+    width: 100%;
 }
 
-.inputField-main > h5 {
+.inputField-main>h5 {
     font-size: 15px;
     margin: 10px 0;
 }
 
-.inputField-main > textarea {
+.inputField-main>textarea {
     width: 100%;
     font-size: 16px;
     padding: 10px;
     border: 1px solid black;
     border-radius: 6px;
+}
+
+@media screen and (max-width: 1024px) and (min-width: 300px) {
+    .inputField-main {
+        margin: 6px;
+    }
+}
+
+@media screen and (min-width: 1025px) {
+    .inputField-main input[type=file] {
+        font-size: 18px;
+        margin-bottom: 10px;
+        width: fit-content;
+    }
 }

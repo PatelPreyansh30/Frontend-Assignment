@@ -2,3 +2,17 @@
   margin: 10px;
   display: flex;
 }
+
+@media screen and (max-width: 1024px) and (min-width: 300px) {
+  .app {
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
+
+@media screen and (min-width: 1025px) {
+  .app {
+    display: flex;
+    flex: 2;
+  }
+}
