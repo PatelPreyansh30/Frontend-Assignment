@@ -1,5 +1,5 @@
+import React, { useState } from "react";
 import { Chip, TextField, Tooltip } from "@mui/material";
-import React, { useEffect, useState } from "react";
 
 const InputUiType = (props: {
   data: any;
@@ -41,18 +41,3 @@ const InputUiType = (props: {
 };
 
 export default InputUiType;
-
-// {
-//   "sort": 1,
-//   "label": "Pizza Name",
-//   "description": "",
-//   "validate": {
-//     "required": true,
-//     "immutable": false
-//   },
-//   "jsonKey": "name",
-//   "uiType": "Input",
-//   "icon": "",
-//   "level": 0,
-//   "placeholder": "Enter Pizza Name"
-// },
