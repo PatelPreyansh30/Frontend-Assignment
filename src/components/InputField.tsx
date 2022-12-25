@@ -19,6 +19,12 @@ const InputField = (props: { handleOnChange: any; setJsonData: any }) => {
     };
   };
 
+  const handleOnChangeForTextArea = (
+    e: React.ChangeEvent<HTMLTextAreaElement>
+  ) => {
+    props.setJsonData(e.target.value);
+  };
+  
   return (
     <div className="inputField-main">
       <input
@@ -30,6 +36,11 @@ const InputField = (props: { handleOnChange: any; setJsonData: any }) => {
         placeholder="Select JSON File"
         onChange={handleOnChange}
       />
+      <h5>OR</h5>
+      <textarea
+        onChange={handleOnChangeForTextArea}
+        placeholder="Paste your copied JSON"
+      ></textarea>
     </div>
   );
 };

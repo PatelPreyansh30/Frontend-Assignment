@@ -43,7 +43,12 @@ const PreviewField = (props: { jsonData: any; isJsonData: boolean }) => {
           </div>
         </div>
       ) : (
-        <h3>{props.jsonData}</h3>
+        <h3
+          className="previewField-main"
+          style={{ textAlign: "center", padding: "20px" }}
+        >
+          {props.jsonData}
+        </h3>
       )}
     </>
   );
