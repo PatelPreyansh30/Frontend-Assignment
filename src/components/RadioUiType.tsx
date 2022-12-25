@@ -1,4 +1,4 @@
-import { FormControlLabel, Radio, RadioGroup, Tooltip } from "@mui/material";
+import { Chip, FormControlLabel, Radio, RadioGroup, Tooltip } from "@mui/material";
 import React, { useEffect } from "react";
 
 const RadioUiType = (props: { data: any; setRadioButtonInput: any }) => {
@@ -39,6 +39,11 @@ const RadioUiType = (props: { data: any; setRadioButtonInput: any }) => {
             />
             {props.data.validate.required && (
               <span className="input-required">*</span>
+            )}
+            {props.data.description && (
+              <Tooltip title={props.data.description} arrow>
+                <Chip label="i" size="small" />
+              </Tooltip>
             )}
           </div>
         ))}

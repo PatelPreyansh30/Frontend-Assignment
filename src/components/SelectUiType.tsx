@@ -1,4 +1,5 @@
 import {
+  Chip,
   FormControl,
   InputLabel,
   MenuItem,
@@ -9,14 +10,17 @@ import {
 const SelectUiType = (props: { data: any; class?: string | "" }) => {
   return (
     <div className="width-100 flex align-items-center justify-content-space-between flex-wrap m10">
-      <Tooltip title={props.data.description} arrow>
-        <label htmlFor={props.data.jsonKey} className={`${props.class} m10`}>
-          {props.data.label}{" "}
-          {props.data.validate.required && (
-            <span className="input-required">*</span>
-          )}
-        </label>
-      </Tooltip>
+      <label htmlFor={props.data.jsonKey} className={`${props.class} m10`}>
+        {props.data.label}{" "}
+        {props.data.validate.required && (
+          <span className="input-required">*</span>
+        )}
+        {props.data.description && (
+          <Tooltip title={props.data.description} arrow>
+            <Chip label="i" size="small" />
+          </Tooltip>
+        )}
+      </label>
       <FormControl size="small">
         <InputLabel id="demo-simple-select-label">
           {props.data.label}

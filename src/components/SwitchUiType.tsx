@@ -1,16 +1,19 @@
-import { Checkbox, Tooltip } from "@mui/material";
+import { Checkbox, Chip, Tooltip } from "@mui/material";
 
 const SwitchUiType = (props: { data: any; class?: string | "" }) => {
   return (
     <div className="m10">
-      <Tooltip title={props.data.description} arrow>
-        <label htmlFor={props.data.jsonKey} className={`${props.class}`}>
-          {props.data.label}{" "}
-          {props.data.validate.required && (
-            <span className="input-required">*</span>
-          )}
-        </label>
-      </Tooltip>
+      <label htmlFor={props.data.jsonKey} className={`${props.class}`}>
+        {props.data.label}{" "}
+        {props.data.validate.required && (
+          <span className="input-required">*</span>
+        )}
+        {props.data.description && (
+          <Tooltip title={props.data.description} arrow>
+            <Chip label="i" size="small" />
+          </Tooltip>
+        )}
+      </label>
       <Checkbox
         defaultChecked={props.data.validate.defaultValue}
         id={props.data.jsonKey}

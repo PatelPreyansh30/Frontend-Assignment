@@ -38,6 +38,14 @@ const theme = createTheme({
         },
       },
     },
+    MuiChip: {
+      styleOverrides: {
+        root: {
+          fontFamily: "cursive",
+          backgroundColor: "rgb(127, 169, 196, 0.8)",
+        },
+      },
+    },
   },
 });
 
