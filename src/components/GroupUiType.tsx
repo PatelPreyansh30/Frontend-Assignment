@@ -15,6 +15,7 @@ const GroupUiType = (props: {
 
   return (
     <div>
+      {/* Labeling of group UI */}
       <label className={`${props.class}`}>
         {props.data.label}{" "}
         {props.data.validate.required && (
@@ -27,6 +28,8 @@ const GroupUiType = (props: {
         )}
       </label>
       <Divider />
+
+      {/* Iterat on group and load component based on the UI type */}
       {props.data.subParameters.map((subParameter: any, index: any) => (
         <div key={`group: ${index}`}>
           {subParameter.uiType === "Select" && (
