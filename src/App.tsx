@@ -39,7 +39,7 @@ const theme = createTheme({
 });
 
 function App() {
-  const [jsonData, setJsonData] = useState("");
+  const [jsonData, setJsonData] = useState<string>(``);
 
   const handleOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { value } = e.target;
@@ -49,8 +49,12 @@ function App() {
   return (
     <div className="app">
       <ThemeProvider theme={theme}>
-        <InputField handleOnChange={handleOnChange} jsonData={jsonData} />
-        <PreviewField jsonData={[jsonData]} />
+        <InputField handleOnChange={handleOnChange} setJsonData={setJsonData} />
+        {jsonData !== "" ? (
+          <PreviewField jsonData={JSON.parse(jsonData)} isJsonData />
+        ) : (
+          <PreviewField jsonData="Please Paste JSON Data" isJsonData={false} />
+        )}
       </ThemeProvider>
     </div>
   );

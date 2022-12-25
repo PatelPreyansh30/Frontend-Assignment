@@ -1,5 +1,4 @@
-import Checkbox from "@mui/material/Checkbox";
-import Tooltip from "@mui/material/Tooltip";
+import { Checkbox, Tooltip } from "@mui/material";
 
 const SwitchUiType = (props: { data: any; class?: string | "" }) => {
   return (

@@ -1,6 +1,5 @@
 import { useState } from "react";
-import Divider from "@mui/material/Divider";
-import Tooltip from "@mui/material/Tooltip";
+import { Divider, Tooltip } from "@mui/material";
 import IgnoreUiType from "./IgnoreUiType";
 import RadioUiType from "./RadioUiType";
 import SelectUiType from "./SelectUiType";

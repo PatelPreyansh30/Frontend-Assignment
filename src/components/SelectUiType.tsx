@@ -1,8 +1,10 @@
-import FormControl from "@mui/material/FormControl";
-import InputLabel from "@mui/material/InputLabel";
-import MenuItem from "@mui/material/MenuItem";
-import Select from "@mui/material/Select";
-import Tooltip from "@mui/material/Tooltip";
+import {
+  FormControl,
+  InputLabel,
+  MenuItem,
+  Select,
+  Tooltip,
+} from "@mui/material";
 
 const SelectUiType = (props: { data: any; class?: string | "" }) => {
   return (

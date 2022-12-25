@@ -1,5 +1,5 @@
-import { FormControlLabel, Switch } from "@mui/material";
 import { useState } from "react";
+import { FormControlLabel, Switch } from "@mui/material";
 
 const ToggleSwitch = () => {
   const [value, setValue] = useState("Show advanced fields");
