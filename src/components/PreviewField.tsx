@@ -1,24 +1,56 @@
 import "../style/previewField.css";
-import pizzaData from "../pizza.json";
-// import pizzaData from "../pasta.json";
+import { Button } from "@mui/material";
 import InputUiType from "./InputUiType";
 import GroupUiType from "./GroupUiType";
 import SelectUiType from "./SelectUiType";
 import SwitchUiType from "./SwitchUiType";
+import ToggleSwitch from "./ToggleSwitch";
 
-const PreviewField = (props: { jsonData: Object[] }) => {
-
+const PreviewField = (props: { jsonData: any; isJsonData: boolean }) => {
   return (
-    <div className="previewField-main">
-      {pizzaData.map((item, index) => (
-        <div key={`preview: ${index}`} className="gray-background">
-          {item.uiType === "Input" && <InputUiType data={item} class='h5-font' />}
-          {item.uiType === "Group" && <GroupUiType data={item} class='h5-font' />}
-          {item.uiType === "Select" && <SelectUiType data={item} class='h5-font' />}
-          {item.uiType === "Switch" && <SwitchUiType data={item} class='h5-font' />}
+    <>
+      {props.isJsonData ? (
+        <div className="previewField-main">
+          {props.jsonData.map((item: any, index: any) => (
+            <div key={`preview: ${index}`} className="gray-background">
+              {item.uiType === "Input" && (
+                <InputUiType data={item} class="h5-font" />
+              )}
+              {item.uiType === "Group" && (
+                <GroupUiType data={item} class="h5-font" />
+              )}
+              {item.uiType === "Select" && (
+                <SelectUiType data={item} class="h5-font" />
+              )}
+              {item.uiType === "Switch" && (
+                <SwitchUiType data={item} class="h5-font" />
+              )}
+            </div>
+          ))}
+          <div
+            className="flex justify-content-space-between align-items-center"
+            style={{ padding: "0 10px" }}
+          >
+            <ToggleSwitch />
+            <div className="flex justify-content-center align-items-center">
+              <Button variant="outlined" sx={{ marginRight: "5px" }}>
+                Cancel
+              </Button>
+              <Button variant="contained" sx={{ marginLeft: "5px" }}>
+                Submit
+              </Button>
+            </div>
+          </div>
         </div>
-      ))}
-    </div>
+      ) : (
+        <h3
+          className="previewField-main"
+          style={{ textAlign: "center", padding: "20px" }}
+        >
+          {props.jsonData}
+        </h3>
+      )}
+    </>
   );
 };
 

@@ -1,4 +1,4 @@
-import Tooltip from "@mui/material/Tooltip";
+import { FormControlLabel, Radio, RadioGroup, Tooltip } from "@mui/material";
 import React, { useEffect } from "react";
 
 const RadioUiType = (props: { data: any; setRadioButtonInput: any }) => {
@@ -7,31 +7,42 @@ const RadioUiType = (props: { data: any; setRadioButtonInput: any }) => {
   }, []);
 
   const handleOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    props.setRadioButtonInput(e.target.value);
+    if (e.target.checked) {
+      props.setRadioButtonInput(e.target.value);
+    }
   };
 
   return (
     <div className="m10 flex align-items-center justify-content-space-between">
-      {props.data.validate.options.map((option: any, index: any) => (
-        <div key={`radio: ${index}`}>
-          <Tooltip title={props.data.description} arrow>
-            <label htmlFor={option.value}>
-              {option.label}{" "}
-              {props.data.validate.required && (
-                <span className="input-required">*</span>
-              )}
-            </label>
-          </Tooltip>
-          <input
-            type="radio"
-            name={props.data.jsonKey}
-            id={option.value}
-            defaultChecked={props.data.validate.defaultValue === option.value}
-            value={option.value}
-            onChange={handleOnChange}
-          />
-        </div>
-      ))}
+      <RadioGroup
+        row
+        aria-labelledby="demo-radio-buttons-group-label"
+        defaultValue={props.data.validate.defaultValue}
+        name={props.data.jsonKey}
+        sx={{ margin: "0" }}
+      >
+        {props.data.validate.options.map((option: any, index: any) => (
+          <div>
+            <FormControlLabel
+              value={option.value}
+              control={
+                <Radio
+                  onChange={handleOnChange}
+                  name={props.data.jsonKey}
+                  sx={{ margin: "0" }}
+                />
+              }
+              label={option.label}
+              name={props.data.jsonKey}
+              labelPlacement="end"
+              sx={{ margin: "0" }}
+            />
+            {props.data.validate.required && (
+              <span className="input-required">*</span>
+            )}
+          </div>
+        ))}
+      </RadioGroup>
     </div>
   );
 };

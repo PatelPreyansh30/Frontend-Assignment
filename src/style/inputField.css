@@ -1,4 +1,31 @@
 .inputField-main {
-    border: 2px solid black;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    align-content: flex-start;
+    flex: 1;
     width: 100%;
+    margin-right: 5px;
+    padding: 20px;
+    border: 2px solid black;
+    border-radius: 8px;
+}
+
+.inputField-main input[type=file] {
+    font-size: 18px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.inputField-main > h5 {
+    font-size: 15px;
+    margin: 10px 0;
+}
+
+.inputField-main > textarea {
+    width: 100%;
+    font-size: 16px;
+    padding: 10px;
+    border: 1px solid black;
+    border-radius: 6px;
 }

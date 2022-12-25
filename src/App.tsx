@@ -11,6 +11,9 @@ const theme = createTheme({
       main: "#000",
     },
   },
+  typography: {
+    fontFamily: "Poppins",
+  },
   components: {
     MuiTextField: {
       styleOverrides: {
@@ -39,18 +42,33 @@ const theme = createTheme({
 });
 
 function App() {
-  const [jsonData, setJsonData] = useState("");
-
-  const handleOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { value } = e.target;
-    setJsonData(value);
-  };
+  const [jsonData, setJsonData] = useState<string>(``);
 
   return (
     <div className="app">
       <ThemeProvider theme={theme}>
-        <InputField handleOnChange={handleOnChange} jsonData={jsonData} />
-        <PreviewField jsonData={[jsonData]} />
+        <InputField setJsonData={setJsonData} />
+
+        {jsonData === "" ? (
+          <PreviewField jsonData="Please Paste JSON Data" isJsonData={false} />
+        ) : (
+          <>
+            {jsonData.split("")[0] !== "[" && jsonData.split("")[0] !== "{" ? (
+              <PreviewField
+                jsonData="Please Enter Valid JSON Data"
+                isJsonData={false}
+              />
+            ) : (
+              <>
+                {jsonData.split("")[0] === "{" ? (
+                  <PreviewField jsonData="{} JSON Data" isJsonData={false} />
+                ) : (
+                  <PreviewField jsonData={JSON.parse(jsonData)} isJsonData />
+                )}
+              </>
+            )}
+          </>
+        )}
       </ThemeProvider>
     </div>
   );

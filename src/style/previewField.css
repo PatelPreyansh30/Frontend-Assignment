@@ -7,6 +7,9 @@
 
 .previewField-main {
     width: 100%;
+    margin-left: 5px;
+    border: 2px solid var(--font-color);
+    border-radius: 8px;
 }
 
 .input-required {
