@@ -22,6 +22,11 @@ const PreviewField = (props: { jsonData: any; isJsonData: boolean }) => {
     <>
       {props.isJsonData ? (
         <div className="previewField-main">
+          <h2 style={{ margin: "10px" }}>
+            Create {props.jsonData[0].label.split(" ")[0]}
+          </h2>
+          <Divider sx={{ margin: "10px" }} />
+
           {props.jsonData.map((item: any, index: any) => (
             <div key={`preview: ${index}`} className="gray-background">
               {item.uiType === "Input" && (
@@ -54,6 +59,7 @@ const PreviewField = (props: { jsonData: any; isJsonData: boolean }) => {
               )}
             </div>
           ))}
+          
           <Divider sx={{ margin: "10px" }} />
           <div
             className="flex justify-content-space-between align-items-center"
