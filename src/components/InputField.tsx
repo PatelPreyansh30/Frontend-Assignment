@@ -20,17 +20,17 @@ const InputField = (props: { handleOnChange: any; setJsonData: any }) => {
   };
 
   return (
-    <>
+    <div className="inputField-main">
       <input
         name=""
         id=""
-        className="inputField-main"
+        className=""
         accept=".json"
         type="file"
         placeholder="Select JSON File"
         onChange={handleOnChange}
       />
-    </>
+    </div>
   );
 };
 

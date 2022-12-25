@@ -1,4 +1,11 @@
 .inputField-main {
-    border: 2px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 100%;
+    border: 2px solid black;
+}
+
+.inputField-main input[type=file] {
+    font-size: 18px;
 }
