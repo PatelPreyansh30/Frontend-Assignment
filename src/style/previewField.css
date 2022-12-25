@@ -1,6 +1,6 @@
 :root {
-    --background: rgb(174, 201, 218, 0.3);
-    --background-border: rgb(127, 169, 196);
+    --background: rgb(174, 201, 218, 0.2);
+    --background-border: rgb(93, 144, 175);
     --font-color: rgb(20, 91, 199);
     --error-color: red;
 }
