@@ -1,17 +1,36 @@
+import React from "react";
 import "../style/inputField.css";
 
-const InputField = (props: {handleOnChange: any; jsonData: string}) => {
+const InputField = (props: { handleOnChange: any; setJsonData: any }) => {
+  const handleOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const reader = new FileReader();
+    const file = e.target.files;
+    if (file === null) {
+      return;
+    }
+    reader.readAsText(file[0]);
+    reader.onload = () => {
+      if (reader.result) {
+        props.setJsonData(reader.result);
+      }
+    };
+    reader.onerror = () => {
+      console.log("File error occured", reader.error);
+    };
+  };
+
   return (
-    <div className="inputField-main">
-      <textarea
-        value={props.jsonData}
-        onChange={props.handleOnChange}
-        name="jsonData"
+    <>
+      <input
+        name=""
         id=""
-        placeholder="Paste your JSON code here"
-        style={{ width: "100%", height: "100%", boxSizing: "border-box" }}
-      ></textarea>
-    </div>
+        className="inputField-main"
+        accept=".json"
+        type="file"
+        placeholder="Select JSON File"
+        onChange={handleOnChange}
+      />
+    </>
   );
 };
 
