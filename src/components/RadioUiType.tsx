@@ -1,5 +1,11 @@
-import { Chip, FormControlLabel, Radio, RadioGroup, Tooltip } from "@mui/material";
 import React, { useEffect } from "react";
+import {
+  Chip,
+  FormControlLabel,
+  Radio,
+  RadioGroup,
+  Tooltip,
+} from "@mui/material";
 
 const RadioUiType = (props: { data: any; setRadioButtonInput: any }) => {
   useEffect(() => {
@@ -53,33 +59,3 @@ const RadioUiType = (props: { data: any; setRadioButtonInput: any }) => {
 };
 
 export default RadioUiType;
-
-// {
-//   "sort": 0,
-//   "label": "Pizza_type Type",
-//   "description": "",
-//   "validate": {
-//     "required": true,
-//     "options": [
-//       {
-//         "label": "Naples Style Pizza",
-//         "value": "naples",
-//         "description": "",
-//         "icon": ""
-//       },
-//       {
-//         "label": "New York Style Pizza",
-//         "value": "newyork",
-//         "description": "",
-//         "icon": ""
-//       }
-//     ],
-//     "defaultValue": "naples",
-//     "immutable": false
-//   },
-//   "jsonKey": "type",
-//   "uiType": "Radio",
-//   "icon": "",
-//   "level": 1,
-//   "placeholder": ""
-// },

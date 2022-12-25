@@ -35,19 +35,3 @@ const SwitchUiType = (props: {
 };
 
 export default SwitchUiType;
-
-//         {
-//           "sort": 6,
-//           "label": "Include_seasonings",
-//           "description": "",
-//           "validate": {
-//             "required": true,
-//             "defaultValue": true,
-//             "immutable": false
-//           },
-//           "jsonKey": "include_seasonings",
-//           "uiType": "Switch",
-//           "icon": "",
-//           "level": 1,
-//           "placeholder": ""
-//         },

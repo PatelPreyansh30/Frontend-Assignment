@@ -1,5 +1,5 @@
-import "../style/inputField.css";
 import React from "react";
+import "../style/inputField.css";
 
 const InputField = (props: { setJsonData: any }) => {
   const handleOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {

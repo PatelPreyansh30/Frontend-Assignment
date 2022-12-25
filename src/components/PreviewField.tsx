@@ -1,5 +1,5 @@
+import { useState } from "react";
 import "../style/previewField.css";
-import { useEffect, useState } from "react";
 import { Button, Divider } from "@mui/material";
 import InputUiType from "./InputUiType";
 import GroupUiType from "./GroupUiType";
