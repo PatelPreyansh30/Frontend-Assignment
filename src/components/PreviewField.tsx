@@ -1,5 +1,5 @@
 import "../style/previewField.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Button, Divider } from "@mui/material";
 import InputUiType from "./InputUiType";
 import GroupUiType from "./GroupUiType";
@@ -9,6 +9,15 @@ import ToggleSwitch from "./ToggleSwitch";
 
 const PreviewField = (props: { jsonData: any; isJsonData: boolean }) => {
   const [inputData, setInputData] = useState({});
+
+  const handleSubmit = () => {
+    console.log(inputData);
+  };
+
+  const handleCancel = () => {
+    setInputData({});
+  };
+
   return (
     <>
       {props.isJsonData ? (
@@ -52,10 +61,18 @@ const PreviewField = (props: { jsonData: any; isJsonData: boolean }) => {
           >
             <ToggleSwitch />
             <div className="flex justify-content-center align-items-center">
-              <Button variant="outlined" sx={{ marginRight: "5px" }}>
+              <Button
+                onClick={handleCancel}
+                variant="outlined"
+                sx={{ marginRight: "5px" }}
+              >
                 Cancel
               </Button>
-              <Button variant="contained" sx={{ marginLeft: "5px" }}>
+              <Button
+                onClick={handleSubmit}
+                variant="contained"
+                sx={{ marginLeft: "5px" }}
+              >
                 Submit
               </Button>
             </div>

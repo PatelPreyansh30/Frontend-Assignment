@@ -1,5 +1,5 @@
 import { Chip, TextField, Tooltip } from "@mui/material";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 const InputUiType = (props: {
   data: any;
@@ -7,11 +7,11 @@ const InputUiType = (props: {
   setInputData: any;
 }) => {
   const [inputField, setInputField] = useState("");
-  
+
   const handleOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { value, name } = e.target;
-    setInputField(value)
-    props.setInputData((prev: any) => ({ ...prev, [name]: value }));
+    setInputField(value);
+    props.setInputData((prev: any) => ({ ...prev, [name]: inputField }));
   };
 
   return (

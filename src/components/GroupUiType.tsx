@@ -4,6 +4,7 @@ import IgnoreUiType from "./IgnoreUiType";
 import RadioUiType from "./RadioUiType";
 import SelectUiType from "./SelectUiType";
 import SwitchUiType from "./SwitchUiType";
+import ToggleSwitch from "./ToggleSwitch";
 
 const GroupUiType = (props: {
   data: any;
@@ -59,6 +60,7 @@ const GroupUiType = (props: {
           ))}
         </div>
       ))}
+      <ToggleSwitch />
     </div>
   );
 };
