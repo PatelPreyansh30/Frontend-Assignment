@@ -1,7 +1,7 @@
 import "../style/inputField.css";
 import React from "react";
 
-const InputField = (props: { handleOnChange: any; setJsonData: any }) => {
+const InputField = (props: { setJsonData: any }) => {
   const handleOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const reader = new FileReader();
     const file = e.target.files;
