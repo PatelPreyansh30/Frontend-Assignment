@@ -1,4 +1,5 @@
 import "../style/previewField.css";
+import { useState } from "react";
 import { Button, Divider } from "@mui/material";
 import InputUiType from "./InputUiType";
 import GroupUiType from "./GroupUiType";
@@ -7,6 +8,7 @@ import SwitchUiType from "./SwitchUiType";
 import ToggleSwitch from "./ToggleSwitch";
 
 const PreviewField = (props: { jsonData: any; isJsonData: boolean }) => {
+  const [inputData, setInputData] = useState({});
   return (
     <>
       {props.isJsonData ? (
@@ -14,20 +16,36 @@ const PreviewField = (props: { jsonData: any; isJsonData: boolean }) => {
           {props.jsonData.map((item: any, index: any) => (
             <div key={`preview: ${index}`} className="gray-background">
               {item.uiType === "Input" && (
-                <InputUiType data={item} class="h5-font" />
+                <InputUiType
+                  data={item}
+                  class="h5-font"
+                  setInputData={setInputData}
+                />
               )}
               {item.uiType === "Group" && (
-                <GroupUiType data={item} class="h5-font" />
+                <GroupUiType
+                  data={item}
+                  class="h5-font"
+                  setInputData={setInputData}
+                />
               )}
               {item.uiType === "Select" && (
-                <SelectUiType data={item} class="h5-font" />
+                <SelectUiType
+                  data={item}
+                  class="h5-font"
+                  setInputData={setInputData}
+                />
               )}
               {item.uiType === "Switch" && (
-                <SwitchUiType data={item} class="h5-font" />
+                <SwitchUiType
+                  data={item}
+                  class="h5-font"
+                  setInputData={setInputData}
+                />
               )}
             </div>
           ))}
-          <Divider sx={{margin: "10px"}} />
+          <Divider sx={{ margin: "10px" }} />
           <div
             className="flex justify-content-space-between align-items-center"
             style={{ padding: "0 10px" }}

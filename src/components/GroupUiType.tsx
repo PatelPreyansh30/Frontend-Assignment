@@ -5,12 +5,16 @@ import RadioUiType from "./RadioUiType";
 import SelectUiType from "./SelectUiType";
 import SwitchUiType from "./SwitchUiType";
 
-const GroupUiType = (props: { data: any; class?: string | "" }) => {
+const GroupUiType = (props: {
+  data: any;
+  class?: string | "";
+  setInputData: any;
+}) => {
   const [radioButtonInput, setRadioButtonInput] = useState("");
 
   return (
     <div>
-      <p className={`${props.class}`}>
+      <label className={`${props.class}`}>
         {props.data.label}{" "}
         {props.data.validate.required && (
           <span className="input-required">*</span>
@@ -20,15 +24,21 @@ const GroupUiType = (props: { data: any; class?: string | "" }) => {
             <Chip label="i" size="small" />
           </Tooltip>
         )}
-      </p>
+      </label>
       <Divider />
       {props.data.subParameters.map((subParameter: any, index: any) => (
         <div key={`group: ${index}`}>
           {subParameter.uiType === "Select" && (
-            <SelectUiType data={subParameter} />
+            <SelectUiType
+              data={subParameter}
+              setInputData={props.setInputData}
+            />
           )}
           {subParameter.uiType === "Switch" && (
-            <SwitchUiType data={subParameter} />
+            <SwitchUiType
+              data={subParameter}
+              setInputData={props.setInputData}
+            />
           )}
           {subParameter.uiType === "Radio" && (
             <RadioUiType
@@ -42,6 +52,7 @@ const GroupUiType = (props: { data: any; class?: string | "" }) => {
                 <IgnoreUiType
                   data={subParameter}
                   radioButtonInput={radioButtonInput}
+                  setInputData={props.setInputData}
                 />
               )}
             </div>

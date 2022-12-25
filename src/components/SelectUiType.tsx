@@ -4,10 +4,20 @@ import {
   InputLabel,
   MenuItem,
   Select,
+  SelectChangeEvent,
   Tooltip,
 } from "@mui/material";
 
-const SelectUiType = (props: { data: any; class?: string | "" }) => {
+const SelectUiType = (props: {
+  data: any;
+  class?: string | "";
+  setInputData: any;
+}) => {
+  const handleOnChange = (e: SelectChangeEvent) => {
+    const { value, name } = e.target;
+    props.setInputData((prev: any) => ({ ...prev, [name]: value }));
+  };
+
   return (
     <div className="width-100 flex align-items-center justify-content-space-between flex-wrap m10">
       <label htmlFor={props.data.jsonKey} className={`${props.class} m10`}>
@@ -31,6 +41,7 @@ const SelectUiType = (props: { data: any; class?: string | "" }) => {
           defaultValue={props.data.validate.defaultValue}
           labelId="demo-simple-select-label"
           label={props.data.label}
+          onChange={(e: SelectChangeEvent) => handleOnChange(e)}
         >
           {props.data.validate.options.map((option: any, index: any) => (
             <MenuItem key={`options: ${index}`} value={option.label}>
