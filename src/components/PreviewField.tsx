@@ -1,4 +1,5 @@
 import "../style/previewField.css";
+import { Button } from "@mui/material";
 import InputUiType from "./InputUiType";
 import GroupUiType from "./GroupUiType";
 import SelectUiType from "./SelectUiType";
@@ -26,7 +27,20 @@ const PreviewField = (props: { jsonData: any; isJsonData: boolean }) => {
               )}
             </div>
           ))}
-          <ToggleSwitch />
+          <div
+            className="flex justify-content-space-between align-items-center"
+            style={{ padding: "0 10px" }}
+          >
+            <ToggleSwitch />
+            <div className="flex justify-content-center align-items-center">
+              <Button variant="outlined" sx={{ marginRight: "5px" }}>
+                Cancel
+              </Button>
+              <Button variant="contained" sx={{ marginLeft: "5px" }}>
+                Submit
+              </Button>
+            </div>
+          </div>
         </div>
       ) : (
         <h3>{props.jsonData}</h3>

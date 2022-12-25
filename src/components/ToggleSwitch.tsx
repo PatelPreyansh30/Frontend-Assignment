@@ -12,12 +12,13 @@ const ToggleSwitch = () => {
   };
 
   return (
-    <div>
+    <div className="m10">
       <FormControlLabel
         value="start"
         control={<Switch color="primary" onChange={handleOnChange} />}
         label={value}
         labelPlacement="start"
+        sx={{ margin: "0" }}
       />
     </div>
   );
