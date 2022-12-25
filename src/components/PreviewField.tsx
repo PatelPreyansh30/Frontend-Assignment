@@ -5,6 +5,7 @@ import InputUiType from "./InputUiType";
 import GroupUiType from "./GroupUiType";
 import SelectUiType from "./SelectUiType";
 import SwitchUiType from "./SwitchUiType";
+import ToggleSwitch from "./ToggleSwitch";
 
 const PreviewField = (props: { jsonData: Object[] }) => {
 
@@ -18,6 +19,7 @@ const PreviewField = (props: { jsonData: Object[] }) => {
           {item.uiType === "Switch" && <SwitchUiType data={item} class='h5-font' />}
         </div>
       ))}
+      <ToggleSwitch />
     </div>
   );
 };
