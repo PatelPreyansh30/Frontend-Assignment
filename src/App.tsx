@@ -44,28 +44,40 @@ const theme = createTheme({
 function App() {
   const [jsonData, setJsonData] = useState<string>(``);
 
+  function isValidJson(str: string) {
+    try {
+      JSON.parse(str);
+    } catch (e) {
+      return false;
+    }
+    return true;
+  }
+
   return (
     <div className="app">
       <ThemeProvider theme={theme}>
         <InputField setJsonData={setJsonData} />
 
         {jsonData === "" ? (
-          <PreviewField jsonData="Please Paste JSON Data" isJsonData={false} />
+          <PreviewField jsonData="Please paste JSON data" isJsonData={false} />
         ) : (
           <>
-            {jsonData.split("")[0] !== "[" && jsonData.split("")[0] !== "{" ? (
-              <PreviewField
-                jsonData="Please Enter Valid JSON Data"
-                isJsonData={false}
-              />
-            ) : (
+            {isValidJson(jsonData) ? (
               <>
-                {jsonData.split("")[0] === "{" ? (
-                  <PreviewField jsonData="{} JSON Data" isJsonData={false} />
-                ) : (
+                {Array.isArray(JSON.parse(jsonData)) ? (
                   <PreviewField jsonData={JSON.parse(jsonData)} isJsonData />
+                ) : (
+                  <PreviewField
+                    jsonData="Please enter JSON data which has multiple fields"
+                    isJsonData={false}
+                  />
                 )}
               </>
+            ) : (
+              <PreviewField
+                jsonData="Please enter valid JSON data"
+                isJsonData={false}
+              />
             )}
           </>
         )}
