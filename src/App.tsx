@@ -19,6 +19,7 @@ const theme = createTheme({
       styleOverrides: {
         root: {
           width: "300px",
+          margin: "10px 0",
           backgroundColor: "white",
         },
       },
@@ -26,6 +27,7 @@ const theme = createTheme({
     MuiFormControl: {
       styleOverrides: {
         root: {
+          margin: "10px 0",
           width: "300px",
           backgroundColor: "white",
         },
