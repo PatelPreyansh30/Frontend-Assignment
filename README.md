@@ -1,4 +1,4 @@
-# Frontend Assignment
+# JSON to UI Converter
 
 ### What is the use of this Repo
 This Project is a Simple ReactJS Project which demonstrates the following:
