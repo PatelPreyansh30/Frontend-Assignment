@@ -9,7 +9,7 @@ This Project is a Simple ReactJS Project which demonstrates the following:
     4.Using how perform JSON with react components
 
 ### Live Application URL
-[https://frontend-assignment-patelpreyansh30.vercel.app/](https://frontend-assignment-patelpreyansh30.vercel.app/)
+[https://json-to-ui-converter.vercel.app/](https://json-to-ui-converter.vercel.app/)
 
 This aaplication deployed on vercel
 
